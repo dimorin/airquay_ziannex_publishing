@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="./css/select2.min.css"/>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>스마트 터널 안전 관리</title>
+</head>
+
+<body class="sub">
+  <main>
+    <div class="sub_container d-flex flex-column">      
+      <div class="table_header_wrap flex-shrink-0">
+        <div class="left">
+          <div class="title">센서 리스트</div>
+          <button class="btn_icon refresh ml-2" title="새로고침"><span class="material-symbols-outlined">refresh</span></button>
+        </div>      
+        <div class="right">
+          <button class="btn_normal fill add" data-toggle="modal" data-target="#addModal_sensor">등록</button>
+        </div>        
+      </div>
+      <div class="position-relative sticky_wrap flex-grow-1">
+        <div class="sticky_box tunnel_scrollbar h-100">
+          <div style="height:0px;">
+            <table class="vertical sticky">
+              <thead>
+                <tr>
+                  <th><span>모델</span> <button class="arrow-sort" order="0"><div class="combo"></div></button></th>
+                  <th><span>제조사</span> <button class="arrow-sort" order="0"><div class="combo"></div></button></th>
+                  <th><span>IP</span> <button class="arrow-sort" order="0"><div class="combo"></div></button></th>
+                  <th><span>port</span> <button class="arrow-sort" order="0"><div class="combo"></div></button></th>
+                  <th><span>터널</span> <button class="arrow-sort" order="0"><div class="combo"></div></button></th>
+                  <th><span>구간</span> <button class="arrow-sort" order="0"><div class="combo"></div></button></th>
+                  <th>수정</th>
+                  <th>삭제</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">aaaa</td>
+                  <td class="text-center">조이</td>
+                  <td class="text-center">192.168.3.30</td>
+                  <td class="text-center">8080</td>
+                  <td class="text-center">고막</td>
+                  <td class="text-center">시점부○○방향</td>
+                  <td class="text-center"><button class="btn_icon edit" data-toggle="modal" data-target="#editModal_sensor" title="수정"><span class="material-symbols-outlined">edit_square</span></button></td>
+                  <td class="text-center"><button class="btn_icon delete" data-toggle="modal" data-target="#deleteModal_sensor" title="삭제"><span class="material-symbols-outlined">delete</span></button></td>
+                </tr>
+                <tr>
+                  <td class="text-center">aaaa</td>
+                  <td class="text-center">조이</td>
+                  <td class="text-center">192.168.3.30</td>
+                  <td class="text-center">8080</td>
+                  <td class="text-center">고막</td>
+                  <td class="text-center">시점부○○방향</td>
+                  <td class="text-center"><button class="btn_icon edit" data-toggle="modal" data-target="#editModal_sensor" title="수정"><span class="material-symbols-outlined">edit_square</span></button></td>
+                  <td class="text-center"><button class="btn_icon delete" data-toggle="modal" data-target="#deleteModal_sensor" title="삭제"><span class="material-symbols-outlined">delete</span></button></td>
+                </tr>           
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="table_footer_wrap flex-shrink-0">
+        <div class="total_wrap">
+          <span>총</span>
+          <span class="total">10</span>
+          <span>개</span>
+        </div>
+        <div class="pagenation_wrap">
+          <button class="btn_page mx-1"><span
+              class="material-symbols-outlined">keyboard_double_arrow_left</span></button>
+          <button class="btn_page mx-1"><span class="material-symbols-outlined">keyboard_arrow_left</span></button>
+          <div class="page_num mx-3">
+            <span class="current_page">1</span>
+            <span>/</span>
+            <span class="total_page">4</span>
+          </div>
+          <button class="btn_page mx-1"><span class="material-symbols-outlined">keyboard_arrow_right</span></button>
+          <button class="btn_page mx-1"><span
+              class="material-symbols-outlined">keyboard_double_arrow_right</span></button>
+        </div>
+        <select class="tunnel_filter page_num" name="">
+          <option value="10">10개씩</option>
+          <option value="30">30개씩</option>
+          <option value="50">50개씩</option>
+        </select>
+      </div>      
+    </div>
+  </main>
+  <!-- add Modal -->
+  <div class="modal fade tunnelModal" id="addModal_sensor" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">등록</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="text" name="" id="" class="tunnel_input" placeholder="모델">
+          <div class="mt-10px"></div>
+          <input type="text" name="" id="" class="tunnel_input" placeholder="제조사">
+          <div class="mt-10px"></div>
+          <input type="text" name="" id="" class="tunnel_input" placeholder="IP">
+          <div class="mt-10px"></div>
+          <input type="text" name="" id="" class="tunnel_input" placeholder="port">
+          <div class="mt-10px"></div>
+          <select class="tunnel_filter" name="" id="">
+            <option>터널</option>
+            <option value="">고막</option>
+            <option value="">죽정</option>
+          </select>
+          <div class="mt-10px"></div>
+          <select class="tunnel_filter" name="" id="">
+            <option>구간</option>
+            <option value="">시점부○○방향</option>
+            <option value="">종점부○○방향</option>
+          </select>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn_normal fill">등록</button>
+          <button type="button" class="btn_normal ml-2" data-dismiss="modal">취소</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- edit Modal -->
+  <div class="modal fade tunnelModal" id="editModal_sensor" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">수정</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="text" name="" id="" class="tunnel_input" placeholder="모델">
+          <div class="mt-10px"></div>
+          <input type="text" name="" id="" class="tunnel_input" placeholder="제조사">
+          <div class="mt-10px"></div>
+          <input type="text" name="" id="" class="tunnel_input" placeholder="IP">
+          <div class="mt-10px"></div>
+          <input type="text" name="" id="" class="tunnel_input" placeholder="port">
+          <div class="mt-10px"></div>
+          <select class="tunnel_filter" name="" id="">
+            <option>터널</option>
+            <option value="">고막</option>
+            <option value="">죽정</option>
+          </select>
+          <div class="mt-10px"></div>
+          <select class="tunnel_filter" name="" id="">
+            <option>구간</option>
+            <option value="">시점부○○방향</option>
+            <option value="">종점부○○방향</option>
+          </select>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn_normal fill">수정</button>
+          <button type="button" class="btn_normal ml-2" data-dismiss="modal">취소</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- delete Modal -->
+  <div class="modal fade tunnelModal" id="deleteModal_sensor" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">삭제</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <span class="txt">해당 리스트를 삭제하시겠습니까?</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn_normal fill">삭제</button>
+          <button type="button" class="btn_normal ml-2" data-dismiss="modal">취소</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/jquery-3.0.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/bootstrap-datepicker.min.js"></script>
+  <script src="./js/bootstrap-datepicker.ko.min.js"></script>  
+  <script src="./js/select2.min.js"></script>
+  <script src="./js/common.js"></script>
+  <script>
+    var pWindow;
+    var loading_spinner;
+    $(function(){
+      initData();
+      initEventListener();
+      loading_spinner.hide();
+      
+  
+    });
+
+    function initData(){
+      pWindow = parent;
+      loading_spinner = pWindow.loading_spinner;
+    }
+
+    function initEventListener(){      
+      $('.tunnel_filter').select2({
+        width: 200,
+        minimumResultsForSearch: Infinity
+      });
+      $('.tunnel_filter.page_num').select2({
+        width: 90,
+        minimumResultsForSearch: Infinity
+      });
+
+     
+      
+    }
+  </script>
+</body>
+
+</html>

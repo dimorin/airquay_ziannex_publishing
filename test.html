@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="./css/select2.min.css"/>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>스마트 터널 안전 관리</title>
+  <style>
+    .bar_wrap{
+      position:relative;left:100px;top:500px;
+      width:600px;height:40px;
+      background: repeating-linear-gradient(90deg, #efefef55, #efefef55 1px, rgba(0,255,210, 0.5) 1px, rgba(0,255,210, 0.5) 40px);
+      transform:skew(60deg, -30deg);
+    }
+    .bar {
+      position:relative;
+      width:50%;height:100%;
+      background: repeating-linear-gradient(90deg, #efefef55, #efefef55 1px, rgba(0,255,210, 0.5) 1px, rgba(0,255,210, 0.5) 40px);
+      /*transform:skew(60deg, -30deg);*/
+      transition:width 0.4s ease;
+    }
+    .sub_bar_wrap{
+      position:absolute;
+      right:0;top:40px;
+      transform:skew(-60deg, 30deg);
+    }
+    .sub_bar{
+      width:50px;height:50px;background:rgba(0,255,210, 1);
+    }
+  </style>
+</head>
+
+<body class="sub">
+  <main>
+    <div class="sub_container" style="background:black;">
+      <button class="btn 10 text-white">10%</button>
+      <button class="btn 40 text-white">40%</button>
+      <button class="btn 70 text-white">70%</button>
+      <button class="btn 100 text-white">100%</button>
+      <div class="bar_wrap">
+        <div class="bar">
+          <div class="sub_bar_wrap">
+            <div class="sub_bar">hi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.0.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/bootstrap-datepicker.min.js"></script>
+  <script src="./js/bootstrap-datepicker.ko.min.js"></script>  
+  <script src="./js/select2.min.js"></script>
+  <script src="./js/common.js"></script>
+  <script>
+    var pWindow;
+    //var modal;
+    var loading_spinner;
+    $(function(){
+      initData();
+      initEventListener();
+      loading_spinner.hide();  
+    });
+
+    function initData(){
+      pWindow = parent;
+      //modal = pWindow.modal;
+      loading_spinner = pWindow.loading_spinner;
+    }
+
+    function initEventListener(){
+      $('.btn.10').on('click',function(){
+        $('.bar').css({'width':'10%'});
+      });
+      $('.btn.40').on('click',function(){
+        $('.bar').css({'width':'40%'});
+      });
+      $('.btn.70').on('click',function(){
+        $('.bar').css({'width':'70%'});
+      });
+      $('.btn.100').on('click',function(){
+        $('.bar').css({'width':'100%'});
+      });
+      
+
+      
+    }
+  </script>
+</body>
+
+</html>
